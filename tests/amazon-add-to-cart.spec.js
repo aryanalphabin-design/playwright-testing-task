@@ -172,8 +172,9 @@ test('Add item to cart', async ({ page, context }) => {
 
     // Click Add to Cart on the new tab
     await addToCart.click({ timeout: 15000 });
+  });
 
-    // Validate "Added to Cart"
+  await test.step('Verify item in cart', async () => {
     await expect(
       productPage.locator('#nav-cart-count')
     ).toBeVisible({ timeout: 8000 });

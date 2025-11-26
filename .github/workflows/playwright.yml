@@ -28,7 +28,7 @@ jobs:
     - name: TestDino Reporter
       if: always()
       env:
-        TESTDINO_TOKEN: ${{ secrets.TESTDINO_TOKEN }}
+        TESTDINO_TOKEN: ${{secrets.TESTDINO_TOKEN}}
       run: >
         npx --yes tdpw upload playwright-report
         --token="${TESTDINO_TOKEN}"
