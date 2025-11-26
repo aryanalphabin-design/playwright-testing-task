@@ -24,14 +24,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['@testdino/playwright-reporter', { apiKey: "trx_production_46d0881d5b3667a1e7dfae03a9f4e6d67969941042cc151646addd154e6ec7f7" }],
     ['html', { outputDir: 'playwright-report' }],
     ['json', { outputFile: 'playwright-report/report.json' }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     // baseURL: 'https://demo.alphabin.co/',
-    headless: false,
+    headless: !!process.env.CI,
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',

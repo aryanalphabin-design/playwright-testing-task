@@ -30,6 +30,6 @@ jobs:
       env:
         TESTDINO_TOKEN: ${{ secrets.TESTDINO_TOKEN }}
       run: >
-        npx --yes tdpw playwright-report/report.json
-        --token="${trx_production_46d0881d5b3667a1e7dfae03a9f4e6d67969941042cc151646addd154e6ec7f7}"
+        npx --yes tdpw upload playwright-report
+        --token="${TESTDINO_TOKEN}"
         --upload-html
