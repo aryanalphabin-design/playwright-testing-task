@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 const LINK = "https://www.amazon.in/"
 
-test('Add item to cart', async ({ page, context }) => {
+test.only('Add item to cart', async ({ page, context }) => {
   var productPage = null;
   await test.step('Navigate to Amazon', async () => {
     await page.goto(LINK);
@@ -38,13 +38,13 @@ test('Add item to cart', async ({ page, context }) => {
 
   await test.step('Verify item in cart', async () => {
     const cartbutton = await productPage.locator('#nav-cart-count');
-    await expect(cartbutton).toBeVisible({ timeout: 8000 });
+    await expect(cartbutton).toBeVisible({ timeout: 15000 });
     await cartbutton.click();
   });
 
   await test.step('opening cart page', async () => {
     const cartbutton = await productPage.locator('a#nav-cart');
-    await expect(cartbutton).toBeVisible({ timeout: 8000 });
+    await expect(cartbutton).toBeVisible({ timeout: 15000 });
     await cartbutton.click();
   });
 });
