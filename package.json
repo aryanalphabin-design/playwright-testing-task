@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:upload": "dotenv -e my.env -- npx --yes tdpw upload playwright-report --token $TESTDINO_TOKEN --upload-html --verbose"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
