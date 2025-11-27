@@ -38,9 +38,9 @@ export default defineConfig({
     // timeout limit update
     actionTimeout: 20000,
     navigationTimeout: 60000,
-    
-    // headless: !!process.env.CI,
-    headless: false,
+
+    headless: !!process.env.CI,
+    // headless: false,
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',
