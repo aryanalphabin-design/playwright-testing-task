@@ -1,6 +1,5 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-
 const LINK = "https://www.amazon.in/"
 
 
@@ -175,8 +174,8 @@ test('Add item to cart', async ({ page, context }) => {
   });
 
   await test.step('Verify item in cart', async () => {
-    await expect(
-      productPage.locator('#nav-cart-count')
-    ).toBeVisible({ timeout: 8000 });
+    const cartbutton = await productPage.locator('#nav-cart-count');
+    await expect(cartbutton).toBeVisible({ timeout: 8000 });
+    await cartbutton.click();
   });
 });
