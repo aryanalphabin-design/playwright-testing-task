@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 const LINK = "https://www.amazon.in/"
 
-test.only('Add item to cart', async ({ page, context }) => {
+test('Add item to cart', async ({ page, context }) => {
   var productPage = null;
   await test.step('Navigate to Amazon', async () => {
     await page.goto(LINK);
