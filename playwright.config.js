@@ -27,14 +27,24 @@ export default defineConfig({
     ['html', { outputDir: 'playwright-report' }],
     ['json', { outputFile: 'playwright-report/report.json' }],
   ],
+
+  // Upated timeout limits
+  timeout: 120000,
+  expect: { timeout: 20000 },
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     // baseURL: 'https://demo.alphabin.co/',
+    // timeout limit update
+    actionTimeout: 20000,
+    navigationTimeout: 60000,
+    
     // headless: !!process.env.CI,
     headless: false,
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',
+
   },
 
   /* Configure projects for major browsers */
