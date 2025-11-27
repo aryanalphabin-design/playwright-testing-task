@@ -39,7 +39,9 @@ jobs:
       if: always()
       env:
         TESTDINO_TOKEN: ${{secrets.TESTDINO_TOKEN}}
+        TESTDINO_API_URL: https://staging-api.testdino.com
       run: >
-        npx --yes tdpw upload playwright-report
-        --token="${TESTDINO_TOKEN}"
-        --upload-html
+        npx --yes tdpw upload playwright-report \
+        --token="${TESTDINO_TOKEN}" \ 
+        --upload-html \
+        --verbose
