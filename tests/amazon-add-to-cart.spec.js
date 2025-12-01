@@ -10,6 +10,7 @@ test('Add item to cart', async ({ page, context }) => {
   });
 
   await test.step('Search for smart watch', async () => {
+    await page.waitForLoadState('networkidle');
     const searchBox = page.locator('#twotabsearchtextbox');
     await expect(searchBox).toBeVisible({ timeout: 15000 });
     await searchBox.fill('smart watch');
