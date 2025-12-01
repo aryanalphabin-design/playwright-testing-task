@@ -5,12 +5,14 @@ const LINK = "https://www.amazon.in/"
 test('Add item to cart', async ({ page, context }) => {
   var productPage = null;
   await test.step('Navigate to Amazon', async () => {
+    
     await page.goto(LINK);
     await expect(page).toHaveURL(/amazon\.in/);
   });
 
   await test.step('Search for smart watch', async () => {
     const searchBox = page.locator('#twotabsearchtextbox');
+    await expect(searchBox).toBeVisible({ timeout: 15000 });
     await searchBox.fill('smart watch');
     await searchBox.press('Enter');
     await page.waitForSelector('[data-component-type="s-search-result"]');
