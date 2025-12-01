@@ -21,7 +21,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 3 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html', { outputDir: 'playwright-report' }],
@@ -29,20 +29,20 @@ export default defineConfig({
   ],
 
   // Upated timeout limits
-  timeout: 120000,
+  timeout: 60000,
   expect: { timeout: 20000 },
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     // baseURL: 'https://demo.alphabin.co/',
     // timeout limit update
-    actionTimeout: 20000,
-    navigationTimeout: 60000,
+    actionTimeout: 10000,
+    navigationTimeout: 10000,
 
     headless: !!process.env.CI,
     // headless: false,
-    trace: 'on',
-    screenshot: 'on',
+    trace: 'retain-on-failure',
+    screenshot: 'retain-on-failure',
     video: 'retain-on-failure',
 
   },
