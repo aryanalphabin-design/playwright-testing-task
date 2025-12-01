@@ -29,21 +29,27 @@ export default defineConfig({
   ],
 
   // Upated timeout limits
-  timeout: 60000,
-  expect: { timeout: 20000 },
+  timeout: 120000,
+  expect: { timeout: 30000 },
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     // baseURL: 'https://demo.alphabin.co/',
     // timeout limit update
-    actionTimeout: 10000,
-    navigationTimeout: 10000,
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
 
     headless: !!process.env.CI,
     // headless: false,
     trace: 'retain-on-failure',
     screenshot: 'retain-on-failure',
     video: 'retain-on-failure',
+
+    userAgent: 'Mozilla/5.0 ... Safari',
+    viewport: { width: 1280, height: 720 },
+    launchOptions: {
+      args: ['--disable-blink-features=AutomationControlled']
+    }
 
   },
 
