@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Amazon Shopping Automation', () => {
-  test.only('should search for smartphones under 30000, add first item to cart and navigate to cart', async ({ page }) => {
+  test('should search for smartphones under 30000, add first item to cart and navigate to cart', async ({ page }) => {
     
     // 1. Navigate to amazon.in
     await page.goto('https://amazon.in');
